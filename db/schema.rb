@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_03_000254) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_03_161813) do
   create_table "extractions", force: :cascade do |t|
     t.date "date"
+    t.string "plant"
     t.string "product"
     t.string "campaign"
     t.string "stage"
-    t.integer "tank"
+    t.string "tank"
     t.integer "concentration"
     t.integer "volume"
     t.integer "weight"
     t.integer "level"
     t.integer "ph"
-    t.integer "plant"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
