@@ -3,4 +3,27 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  # api/v1/routes
+
+  # localhost:3000/api
+
+  namespace :api, defaults: { format: :json} do
+    # version 1
+    #api/v1
+    namespace :v1 do
+      #api/v1/users
+      #login, logout, me, create
+      namespace :users do
+        #post "/users/login" to: "users#login"
+        post :login
+        post :create
+        get :me
+        delete :logout
+      end
+    end
+  end
+
+
+
 end
