@@ -8,7 +8,10 @@ class Api::V1::ApplicationController < ActionController:: API
         }, status: status 
     end
 
-    def render_success
-
+    def render_success(payload:, status: :ok)
+        render json: {
+            success: true, 
+            payload: payload
+        }, status: status
     end
 end
