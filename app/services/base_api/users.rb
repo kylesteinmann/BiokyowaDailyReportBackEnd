@@ -4,7 +4,8 @@ module BaseApi
             user = User.new(email: params[:email],
                 first_name: params[:first_name],
                 last_name: params[:last_name],
-                password: params[:password])
+                password: params[:password],
+                password_confirmation: params[:password_confirmation])
 
             begin
                 user.save!
