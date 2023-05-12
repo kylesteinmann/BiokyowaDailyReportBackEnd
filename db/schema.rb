@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_06_153929) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_10_045839) do
   create_table "extractions", force: :cascade do |t|
     t.date "date"
     t.string "plant"
@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_06_153929) do
   end
 
   create_table "fermentations", force: :cascade do |t|
-    t.string "date"
+    t.date "date"
     t.string "plant"
     t.string "product"
     t.string "campaign"
@@ -65,5 +65,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_232110) do
   end
 
   add_foreign_key "tokens", "users"
+
+  create_table "packagings", force: :cascade do |t|
+    t.date "date"
+    t.string "plant"
+    t.string "product"
+    t.string "campaign"
+    t.string "packages"
+    t.decimal "incoming"
+    t.decimal "outgoing"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
