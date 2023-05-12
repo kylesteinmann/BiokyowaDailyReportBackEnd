@@ -2,10 +2,11 @@ class ExtractionsController < ApplicationController
   before_action :set_extraction, only: %i[ show update destroy ]
 
   # GET /extractions
-  def index
-    @extractions = Extraction.all
+ def index
+      @extractions = Extraction.all
 
     render json: @extractions
+  
   end
 
   # GET /extractions/1
@@ -16,7 +17,7 @@ class ExtractionsController < ApplicationController
   # POST /extractions
   def create
     @extraction = Extraction.new(extraction_params)
-
+    
     if @extraction.save
       render json: @extraction, status: :created, location: @extraction
     else
@@ -26,7 +27,9 @@ class ExtractionsController < ApplicationController
 
   # PATCH/PUT /extractions/1
   def update
+    
     if @extraction.update(extraction_params)
+        
       render json: @extraction
     else
       render json: @extraction.errors, status: :unprocessable_entity
