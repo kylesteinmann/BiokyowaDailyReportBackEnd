@@ -40,9 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_06_153929) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-end
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_02_232110) do
   create_table "tokens", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "value"
@@ -65,5 +63,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_232110) do
   end
 
   add_foreign_key "tokens", "users"
-
 end
