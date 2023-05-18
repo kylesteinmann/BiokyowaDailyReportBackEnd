@@ -1,0 +1,2 @@
+class Extraction < ApplicationRecord
+end
