@@ -40,9 +40,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_045839) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-end
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_02_232110) do
+  create_table "packagings", force: :cascade do |t|
+    t.date "date"
+    t.string "plant"
+    t.string "product"
+    t.string "campaign"
+    t.string "packages"
+    t.decimal "incoming"
+    t.decimal "outgoing"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tokens", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "value"
@@ -65,17 +75,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_232110) do
   end
 
   add_foreign_key "tokens", "users"
-
-  create_table "packagings", force: :cascade do |t|
-    t.date "date"
-    t.string "plant"
-    t.string "product"
-    t.string "campaign"
-    t.string "packages"
-    t.decimal "incoming"
-    t.decimal "outgoing"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end
