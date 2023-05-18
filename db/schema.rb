@@ -20,11 +20,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_06_153929) do
     t.string "plant"
     t.string "product"
     t.string "campaign"
-<<<<<<<<< Temporary merge branch 1
     t.string "packages"
     t.decimal "incoming"
     t.decimal "outgoing"
-=========
     t.string "stage"
     t.string "tank"
     t.decimal "concentration", precision: 10, scale: 2
@@ -50,6 +48,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_06_153929) do
     t.datetime "updated_at", null: false
   end
 end
+
+  create_table "packagings", force: :cascade do |t|
+    t.date "date"
+    t.string "plant"
+    t.string "product"
+    t.string "campaign"
+    t.string "packages"
+    t.decimal "incoming"
+    t.decimal "outgoing"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tokens", force: :cascade do |t|
     t.integer "user_id", null: false
