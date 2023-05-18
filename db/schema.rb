@@ -10,19 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<<<< Temporary merge branch 1
-ActiveRecord::Schema[7.0].define(version: 2023_05_09_000244) do
-  create_table "packagings", force: :cascade do |t|
-=========
-ActiveRecord::Schema[7.0].define(version: 2023_05_06_153929) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_18_060735) do
   create_table "extractions", force: :cascade do |t|
     t.date "date"
     t.string "plant"
     t.string "product"
     t.string "campaign"
-    t.string "packages"
-    t.decimal "incoming"
-    t.decimal "outgoing"
     t.string "stage"
     t.string "tank"
     t.decimal "concentration", precision: 10, scale: 2
@@ -47,7 +40,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_06_153929) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-end
 
   create_table "packagings", force: :cascade do |t|
     t.date "date"
