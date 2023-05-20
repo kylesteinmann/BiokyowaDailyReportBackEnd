@@ -41,6 +41,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_060735) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "packagings", force: :cascade do |t|
+    t.date "date"
+    t.string "plant"
+    t.string "product"
+    t.string "campaign"
+    t.string "packages"
+    t.decimal "incoming"
+    t.decimal "outgoing"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tokens", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "value"
