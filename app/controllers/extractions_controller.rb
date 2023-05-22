@@ -18,6 +18,8 @@ class ExtractionsController < ApplicationController
     @extraction = Extraction.new(extraction_params)
 
     if @extraction.save
+      #create notification upon the save of the created extraction
+      create_notification(@extraction, 'A new extraction row has been created')
       render json: @extraction, status: :created, location: @extraction
     else
       render json: @extraction.errors, status: :unprocessable_entity
@@ -26,7 +28,10 @@ class ExtractionsController < ApplicationController
 
   # PATCH/PUT /extractions/1
   def update
+    
     if @extraction.update(extraction_params)
+      #create notif upon the update of the extraction table
+      create_notification(@extraction, "An extraction row has been edited")
       render json: @extraction
     else
       render json: @extraction.errors, status: :unprocessable_entity
@@ -47,5 +52,9 @@ class ExtractionsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def extraction_params
       params.require(:extraction).permit(:date, :product, :campaign, :stage, :tank, :concentration, :volume, :weight, :level, :ph, :plant)
+    end
+
+    def create_notification(message)
+      Notification.create(message: message)
     end
 end

@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_secure_password validations: true
     validates :email, uniqueness: true
     has_many :tokens
+    has_many :notifications
 
     enum role: {
         manager: 0,

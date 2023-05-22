@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_18_060735) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_20_213520) do
   create_table "extractions", force: :cascade do |t|
     t.date "date"
     t.string "plant"
@@ -39,6 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_060735) do
     t.decimal "received"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.text "message"
+    t.boolean "read"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "packagings", force: :cascade do |t|
@@ -75,5 +84,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_060735) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "notifications", "users"
   add_foreign_key "tokens", "users"
 end
