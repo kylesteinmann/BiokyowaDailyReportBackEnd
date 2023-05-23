@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_18_060735) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_22_023733) do
+  create_table "Users", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "password_digest", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "role"
+    t.string "department"
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
   create_table "extractions", force: :cascade do |t|
     t.date "date"
     t.string "plant"
@@ -62,17 +74,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_060735) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_tokens_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "password_digest", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "role"
-    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "tokens", "users"
