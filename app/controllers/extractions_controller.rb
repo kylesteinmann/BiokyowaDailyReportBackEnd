@@ -2,10 +2,11 @@ class ExtractionsController < ApplicationController
   before_action :set_extraction, only: %i[ show update destroy ]
 
   # GET /extractions
-  def index
-    @extractions = Extraction.all
+ def index
+      @extractions = Extraction.all
 
     render json: @extractions
+  
   end
 
   # GET /extractions/1
@@ -16,7 +17,7 @@ class ExtractionsController < ApplicationController
   # POST /extractions
   def create
     @extraction = Extraction.new(extraction_params)
-
+    
     if @extraction.save
       #create notification upon the save of the created extraction
       create_notification(@extraction, 'A new extraction row has been created')

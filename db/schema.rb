@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_20_213520) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_22_235324) do
   create_table "extractions", force: :cascade do |t|
     t.date "date"
     t.string "plant"
@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_213520) do
   end
 
   create_table "fermentations", force: :cascade do |t|
-    t.string "date"
+    t.date "date"
     t.string "plant"
     t.string "product"
     t.string "campaign"
@@ -80,7 +80,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_213520) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "role"
+    t.string "role"
+    t.string "department"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
