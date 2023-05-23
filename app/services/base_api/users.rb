@@ -5,7 +5,9 @@ module BaseApi
                 first_name: params[:first_name],
                 last_name: params[:last_name],
                 password: params[:password],
-                password_confirmation: params[:password_confirmation])
+                password_confirmation: params[:password_confirmation],
+                department: params[:department],
+                role: params[:role])
 
             begin
                 user.save!
