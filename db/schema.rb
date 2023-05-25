@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_22_235324) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_25_004826) do
   create_table "extractions", force: :cascade do |t|
     t.date "date"
     t.string "plant"
@@ -37,6 +37,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_22_235324) do
     t.decimal "level"
     t.decimal "weight"
     t.decimal "received"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "message"
+    t.boolean "read", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
