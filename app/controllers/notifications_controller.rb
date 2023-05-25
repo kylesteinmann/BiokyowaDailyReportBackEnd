@@ -1,28 +1,37 @@
 class NotificationsController < ApplicationController
+    before_action :set_session_notification, only: [:create]
+  
     def index
-        @notifications = Notification.all
-
-        render json: @notifications
+      @notifications = Notification.all
+      render json: @notifications
     end
-
+  
     def create
-        @notication = Notification.new(notification_params)
-
-        if @notication.save
-            render json: @notication, status: :created
-        else
-            render json: @notication.errors, status: :unprocessable_entity
-        end
+      @notification = Notification.new(notification_params)
+      @notification.message = @message
+  
+      if @notification.save
+        render json: @notification, status: :created
+      else
+        render json: @notification.errors, status: :unprocessable_entity
+      end
     end
-
+  
     def destroy
-        @notification = Notification.find(params[:id])
-        @notication.destroy
+      @notification = Notification.find(params[:id])
+      @notification.destroy
     end
-
+  
     private
-
+  
     def notification_params
-        params.require(:notification).permit(:message, :read_status, :user_id)
+      params.fetch(:notification, {}).permit(:message)
     end
-end
+  
+    def set_session_notification
+        puts session[:createMessage] 
+        @message = session[:createMessage]
+      end
+      
+  end
+  

@@ -31,9 +31,8 @@ class FermentationsController < ApplicationController
   # POST /fermentations
   def create
     @fermentation = Fermentation.new(fermentation_params)
+    session[:createMessage] = "New Fermentation entry"
     if @fermentation.save
-      #create notification upon creation of fermentation row
-      create_notification(@fermentation, "A fermentation row has been created")
       render json: @fermentation, status: :created, location: @fermentation
     else
       render json: @fermentation.errors, status: :unprocessable_entity
@@ -42,9 +41,8 @@ class FermentationsController < ApplicationController
 
   # PATCH/PUT /fermentations/1
   def update
+    session[:createMessage] = "Fermentation entry edited"
     if @fermentation.update(fermentation_params)
-      #create notif upon the edit of fermentation row
-      create_notification(@fermentation, "A fermentation row has been edited")
       render json: @fermentation
     else
       render json: @fermentation.errors, status: :unprocessable_entity
