@@ -9,7 +9,7 @@
    allow do
     origins "*"
 
-     resource "http://biokyowacapstone.web.app",
+     resource "*",
        headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
