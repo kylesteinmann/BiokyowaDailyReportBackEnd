@@ -4,4 +4,4 @@ require_relative "../config/boot"
 require "rails/commands"
 
 production:
-    secret_key_base: '5517929958bedc9bab03ad71c4c56751793956823ea15d78ba509933e739f30303d6bd8c9eac8e283e6c1b413ada060078e6d3fadb0fccb4328ed3f1416d5dcf'
+    secret_key_base: 5517929958bedc9bab03ad71c4c56751793956823ea15d78ba509933e739f30303d6bd8c9eac8e283e6c1b413ada060078e6d3fadb0fccb4328ed3f1416d5dcf
