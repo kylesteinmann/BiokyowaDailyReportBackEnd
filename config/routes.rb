@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :extractions
   resources :packagings
   post 'fermentations/import', to: 'fermentations#import'
+  post 'extractions/import', to: 'extractions#import'
+  post 'packaging/import', to: 'packagings#import'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
